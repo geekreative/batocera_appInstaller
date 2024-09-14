@@ -272,7 +272,7 @@ echo -e "${X} "
 rm -rf /userdata/system/switch/extra/installation 2>/dev/null
 rm /tmp/batocera-switch-updater.sh 2>/dev/null 
 mkdir -p /tmp 2>/dev/null
-wget -q -O "/tmp/batocera-switch-updater.sh" "https://github.com/uureel/batocera.pro/raw/main/switch/tmp/update.sh" 
+wget -q -O "/tmp/batocera-switch-updater.sh" "https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/tmp/update.sh" 
 sed -i 's,MODE=DISPLAY,MODE=CONSOLE,g' /tmp/batocera-switch-updater.sh 2>/dev/null
 dos2unix /tmp/batocera-switch-updater.sh 2>/dev/null 
 chmod a+x /tmp/batocera-switch-updater.sh 2>/dev/null 
