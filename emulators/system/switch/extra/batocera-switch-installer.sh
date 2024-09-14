@@ -3,7 +3,7 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 APPNAME="SWITCH-EMULATION" 
-ORIGIN="github.com/geekreative/batocera-switch" 
+ORIGIN="github.com/geekreative/batocera_switch_installer" 
 #---------------------------------------------------------------------
 ######################################################################
 ORIGIN="${ORIGIN^^}"
@@ -134,7 +134,7 @@ echo -e "${X}PLEASE WAIT${X} . . ."
 cfg=/userdata/system/switch/CONFIG.txt 
 if [[ -f "$cfg" ]]; then 
       # check config file version & update ---------------------------
-      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-config.txt
+      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-config.txt
       wget -q --no-check-certificate --no-cache --no-cookies -O "/tmp/.CONFIG.txt" "$link_defaultconfig"
          currentver=$(cat "$cfg" | grep "(ver " | head -n1 | sed 's,^.*(ver ,,g' | cut -d ")" -f1)
             if [[ "$currentver" = "" ]]; then currentver=1.0.0; fi
@@ -184,7 +184,7 @@ mkdir /userdata/system/configs/emulationstation 2>/dev/null
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/EXTRA
 path=/userdata/system/switch/extra
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-ryujinx" "$url/batocera-config-ryujinx"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-ryujinx-avalonia" "$url/batocera-config-ryujinx-avalonia"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-yuzu" "$url/batocera-config-yuzu"
@@ -205,42 +205,42 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzu
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzuEA.png" "$url/yuzuEA.png"
 # -------------------------------------------------------------------- 
 # + get default config file: 
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/CONFIG.txt" "https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-config.txt"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/CONFIG.txt" "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-config.txt"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/RYUJINX
 path=/userdata/system/switch/configgen/generators/ryujinx
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/ryujinx
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/ryujinx
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/ryujinxMainlineGenerator.py" "$url/ryujinxMainlineGenerator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/YUZU
 path=/userdata/system/switch/configgen/generators/yuzu
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/yuzu
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/yuzu
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzuMainlineGenerator.py" "$url/yuzuMainlineGenerator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS
 path=/userdata/system/switch/configgen/generators
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Generator.py" "$url/Generator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN
 path=/userdata/system/switch/configgen
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/GeneratorImporter.py" "$url/GeneratorImporter.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/switchlauncher.py" "$url/switchlauncher.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/switchlauncher2.py" "$url/switchlauncher2.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION
 path=/userdata/system/configs/emulationstation
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/configs/emulationstation
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/configs/emulationstation
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/es_features_switch.cfg" "$url/es_features_switch.cfg"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/es_systems_switch.cfg" "$url/es_systems_switch.cfg"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION 
 path=/userdata/system/configs/evmapy
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/configs/evmapy
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/configs/evmapy
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/switch.keys" "$url/switch.keys"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/PORTS 
@@ -293,7 +293,7 @@ echo -e "${X} "
 rm -rf /userdata/system/switch/extra/installation 2>/dev/null
 rm /tmp/batocera-switch-updater.sh 2>/dev/null 
 mkdir -p /tmp 2>/dev/null
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/tmp/batocera-switch-updater.sh" "https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-updater.sh" 
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/tmp/batocera-switch-updater.sh" "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-updater.sh" 
 sed -i 's,MODE=DISPLAY,MODE=CONSOLE,g' /tmp/batocera-switch-updater.sh 2>/dev/null
 dos2unix /tmp/batocera-switch-updater.sh 2>/dev/null 
 chmod a+x /tmp/batocera-switch-updater.sh 2>/dev/null 

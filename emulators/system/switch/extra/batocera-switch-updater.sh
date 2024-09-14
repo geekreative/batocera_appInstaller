@@ -2,7 +2,7 @@
 ################################################################################
 # v3.3                SWITCH EMULATORS UPDATER FOR BATOCERA                    #
 #                   ----------------------------------------                   #
-#                     > github.com/geekreative/batocera-switch                    #
+#                     > github.com/geekreative/batocera_switch_installer                    #
 #                        >                        #     
 ################################################################################
 #  ---------------
@@ -202,8 +202,8 @@ rm -rf "$f" 2>/dev/null
                   echo '#!/bin/bash' >> "$u"
                   echo "sed -i 's/^Icon=.*$/Icon=\/userdata\/system\/switch\/extra\/icon_loading.png/' /usr/share/applications/switch-updater.desktop 2>/dev/null" >> "$u"
                   echo "  rm /tmp/.batocera-switch-updater.sh 2>/dev/null" >> "$u"
-                  echo "  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/.batocera-switch-updater.sh https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-updater.sh" >> "$u"
-                  ##echo "  curl -sSf https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-updater.sh -o /tmp/.batocera-switch-updater.sh " >> "$u"
+                  echo "  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/.batocera-switch-updater.sh https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-updater.sh" >> "$u"
+                  ##echo "  curl -sSf https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-updater.sh -o /tmp/.batocera-switch-updater.sh " >> "$u"
                   echo "  sed -i 's,unclutter-remote -h,unclutter-remote -s,g' /tmp/.batocera-switch-updater.sh" >> "$u"
                   echo "  dos2unix /tmp/.batocera-switch-updater.sh 2>/dev/null && chmod 777 /tmp/.batocera-switch-updater.sh 2>/dev/null" >> "$u"
                   echo "    bash /tmp/.batocera-switch-updater.sh" >> "$u"
@@ -268,14 +268,14 @@ EMULATORS="$(echo $EMULATORS | sed 's/ /-/g')"
    # GET EMULATORS FROM CONFIG FILE -------------------------------------
    cfg=/userdata/system/switch/CONFIG.txt
    if [[ ! -f $cfg ]]; then 
-      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-config.txt
+      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-config.txt
       wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/CONFIG.txt" "$link_defaultconfig"
       ###curl -sSf "$link_defaultconfig" -o "/userdata/system/switch/CONFIG.txt"
    fi 
    dos2unix $cfg 1>/dev/null 2>/dev/null
    if [[ -f $cfg ]]; then 
       # check config file version & update ---------------------------
-      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-config.txt
+      link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-config.txt
       rm "/tmp/.CONFIG.txt" 2>/dev/null
       wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/tmp/.CONFIG.txt" "$link_defaultconfig"
       ###curl -sSf "$link_defaultconfig" -o "/tmp/.CONFIG.txt"
@@ -331,8 +331,8 @@ fi
 # -------------------------------------------------------------------
 # get tar dependencies 
 # \\ 
-link_tar=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-tar
-link_libselinux=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libselinux.so.1
+link_tar=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tar
+link_libselinux=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libselinux.so.1
 if [[ -e "$extra/batocera-switch-tar" ]]; then 
 chmod a+x "$extra/batocera-switch-tar"
 else 
@@ -623,7 +623,7 @@ EMULATORS="$(cat $cookie | grep "EMULATORS=" | cut -d "=" -f 2)"
 cfg=/userdata/system/switch/CONFIG.txt
 dos2unix $cfg 1>/dev/null 2>/dev/null
 if [[ ! -e "$cfg" ]]; then 
-link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-config.txt
+link_defaultconfig=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-config.txt
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/CONFIG.txt" "$link_defaultconfig"
 ###curl -sSf "$link_defaultconfig" -o "/userdata/system/switch/CONFIG.txt"
 fi 
@@ -797,13 +797,13 @@ if [[ -e "$cfg" ]]; then
            #yuzu_custom_version_hash=$(curl -Ls "https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-$yuzu_custom_version" | grep "github.com/yuzu-emu/yuzu-mainline/commit/" | head -n1 | sed 's,^.*/commit/,,g' | cut -c 1-9)
            #yuzu_custom_version_date=$(curl -Ls "https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-$yuzu_custom_version" | grep "datetime=" | sed 's,^.*datetime=",,g' | cut -d "T" -f1 | sed 's,-,,g')        
            #if [[ "$yuzu_custom_version_date" != "" ]] && [[ "$yuzu_custom_version_hash" != "" ]]; then 
-              link_yuzu=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/yuzu.AppImage
+              link_yuzu=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/yuzu.AppImage
          #fi
       #fi
    ### yuzuEA
    #yuzuEA_custom_version=$(cat /userdata/system/switch/CONFIG.txt | grep "USE_YUZUEA_VERSION" | head -n1 | sed 's, ,,g' | cut -d "=" -f2 | sed 's, ,,g' | tr -d '\0')
       #if [[ "$yuzuEA_custom_version" != "auto" ]] && [[ "$yuzuEA_custom_version" != "Auto" ]] && [[ "$yuzuEA_custom_version" != "AUTO" ]] && [[ "$yuzuEA_custom_version" != "A" ]] && [[ "$yuzuEA_custom_version" != "a" ]] && [[ "$yuzuEA_custom_version" != "" ]]; then 
-           link_yuzuea=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/yuzuEA.AppImage
+           link_yuzuea=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/yuzuEA.AppImage
       #fi
    ### ryujinx 
    ryujinx_custom_version=$(cat /userdata/system/switch/CONFIG.txt | grep "USE_RYUJINX_VERSION" | head -n1 | sed 's, ,,g' | cut -d "=" -f2 | sed 's, ,,g' | tr -d '\0')
@@ -905,7 +905,7 @@ if [ -f "$link_yuzu" ]; then
 		   cd $temp
 # fix broken libstdc++.so.6 for v37 
 		   if [[ "$(uname -a | awk '{print $3}')" > "6.2" ]]; then 
-			  link_libstdc=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libstdc++.so.6
+			  link_libstdc=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libstdc++.so.6
 			  wget -q --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/yuzu/libstdc++.so.6" "$link_libstdc"
 		   else 
 			  rm /userdata/system/switch/extra/yuzu/libstdc++.so.6 2>/dev/null
@@ -1021,7 +1021,7 @@ if [ -f "$link_yuzuEA" ]; then
 		  cd $temp
 # fix broken libstdc++.so.6 for v37 
 		  if [[ "$(uname -a | awk '{print $3}')" > "6.2" ]]; then 
-			 link_libstdc=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libstdc++.so.6
+			 link_libstdc=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libstdc++.so.6
 			 wget -q --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/yuzuea/libstdc++.so.6" "$link_libstdc"
 		  else 
 			 rm /userdata/system/switch/extra/yuzuea/libstdc++.so.6 2>/dev/null
@@ -1120,8 +1120,8 @@ else
 fi
 # --------------------------------------------------------
 # \\ get dependencies for handling ryujinxavalonia
-link_tar=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-tar
-link_libselinux=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libselinux.so.1
+link_tar=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tar
+link_libselinux=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libselinux.so.1
 if [[ -e "$extra/batocera-switch-tar" ]]; then 
    chmod a+x "$extra/batocera-switch-tar"
 else 
@@ -1265,8 +1265,8 @@ version=$(echo "$version" | sed 's,1\.1\.,,g')
 echo -e "${T}██ $C   ${F}RYUJINX-LDN   ${T}❯❯   ${T}$version"
 # --------------------------------------------------------
 # \\ get dependencies for handling ryujinxavalonia
-link_tar=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-tar
-link_libselinux=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libselinux.so.1
+link_tar=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tar
+link_libselinux=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libselinux.so.1
 if [[ -e "$extra/batocera-switch-tar" ]]; then 
    chmod a+x "$extra/batocera-switch-tar"
 else 
@@ -1419,8 +1419,8 @@ version=$(echo "$version" | sed 's,1\.1\.,,g')
 echo -e "${T}██ $C   ${F}RYUJINX-AVALONIA   ${T}❯❯   ${T}$version"
 # --------------------------------------------------------
 # \\ get dependencies for handling ryujinxavalonia
-link_tar=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-tar
-link_libselinux=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra/batocera-switch-libselinux.so.1
+link_tar=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tar
+link_libselinux=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libselinux.so.1
 if [[ -e "$extra/batocera-switch-tar" ]]; then 
    chmod a+x "$extra/batocera-switch-tar"
 else 
@@ -2218,7 +2218,7 @@ echo -e "${THEME_COLOR_YUZU}❯❯❯ ${F}UPDATING ADDITIONAL FILES ${T}...${T}"
 # -------------------------------------------------------------------
 # get additional files 
 # ------------------------------------------------------------------- 
-   extraurl="https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra"
+   extraurl="https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra"
 # ------------------------------------------------------------------- 
 # prepare xdg integration 
    if [[ ! -d /userdata/system/switch/extra/xdg ]] || [[ "$(du -Hs /userdata/system/switch/extra/xdg | awk '{print $1}')" < "50000" ]]; then 
@@ -2245,7 +2245,7 @@ echo -e "${THEME_COLOR_YUZU}❯❯❯ ${F}UPDATING ADDITIONAL FILES ${T}...${T}"
    cd /userdata/system/ 
 # ------------------------------------------------------------------- 
 # get mapping.csv file (obsolete)
-#   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/configgen/mapping.csv" "https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/mapping.csv"
+#   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/configgen/mapping.csv" "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/mapping.csv"
 #   dos2unix /userdata/system/switch/configgen/mapping.csv 2>/dev/null 
    rm /userdata/system/switch/configgen/mapping.csv 2>/dev/null 
 # ------------------------------------------------------------------- 
@@ -2324,7 +2324,7 @@ fi
    chmod a+x /userdata/system/switch/extra/yuzu-controller-patcher.sh 2>/dev/null  
 # -------------------------------------------------------------------
 # prepare patcher 
-url_patcher="https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-patcher.sh"
+url_patcher="https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-patcher.sh"
    wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/batocera-switch-patcher.sh" "$url_patcher"
    ###curl -sSf "$url_patcher" -o "/userdata/system/switch/extra/batocera-switch-patcher.sh"
    dos2unix ~/switch/extra/batocera-switch-patcher.sh 2>/dev/null
@@ -2537,15 +2537,15 @@ mkdir -p /userdata/system/switch/configgen/generators/yuzu 2>/dev/null
 mkdir -p /userdata/system/switch/configgen/generators/ryujinx 2>/dev/null
 mkdir -p /userdata/system/configs/emulationstation 2>/dev/null
 mkdir -p /userdata/system/configs/evmapy 2>/dev/null
-url_switchkeys=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/configs/evmapy/switch.keys
-url_es_features_switch=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/configs/emulationstation/es_features_switch.cfg
-url_es_systems_switch=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/configs/emulationstation/es_systems_switch.cfg
-url_switchlauncher=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/switchlauncher.py
-url_GeneratorImporter=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/GeneratorImporter.py
-url_ryujinxMainlineGenerator=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/ryujinx/ryujinxMainlineGenerator.py
-url_yuzuMainlineGenerator=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/yuzu/yuzuMainlineGenerator.py
-url_sshupdater=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-sshupdater.sh
-url_updater=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-updater.sh
+url_switchkeys=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/configs/evmapy/switch.keys
+url_es_features_switch=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/configs/emulationstation/es_features_switch.cfg
+url_es_systems_switch=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/configs/emulationstation/es_systems_switch.cfg
+url_switchlauncher=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/switchlauncher.py
+url_GeneratorImporter=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/GeneratorImporter.py
+url_ryujinxMainlineGenerator=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/ryujinx/ryujinxMainlineGenerator.py
+url_yuzuMainlineGenerator=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/yuzu/yuzuMainlineGenerator.py
+url_sshupdater=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-sshupdater.sh
+url_updater=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-updater.sh
 url_portsupdater=https://raw.githubusercontent.com/geekreative/batocera-switch/project/roms/ports/Switch%20Updater.sh
 url_portsupdaterkeys=https://raw.githubusercontent.com/geekreative/batocera-switch/project/roms/ports/Switch%20Updater.sh.keys   
    wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/configs/evmapy/switch.keys" "$url_switchkeys"
@@ -2599,7 +2599,7 @@ url_portsupdaterkeys=https://raw.githubusercontent.com/geekreative/batocera-swit
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN
 path=/userdata/system/switch/configgen
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen
 mkdir -p $path 2>/dev/null
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/GeneratorImporter.py" "$url/GeneratorImporter.py"
 ###curl -sSf "$url/GeneratorImporter.py" -o "$path/GeneratorImporter.py"
@@ -2611,7 +2611,7 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/swit
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS
 path=/userdata/system/switch/configgen/generators
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators
 mkdir -p $path 2>/dev/null
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 ##curl -sSf "$url/__init__.py" -o "$path/__init__.py"
@@ -2620,7 +2620,7 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Gene
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/YUZU
 path=/userdata/system/switch/configgen/generators/yuzu
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/yuzu
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/yuzu
 mkdir -p $path 2>/dev/null
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 ##curl -sSf "$url/__init__.py" -o "$path/__init__.py"
@@ -2629,7 +2629,7 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzu
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/RYUJINX
 path=/userdata/system/switch/configgen/generators/ryujinx
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/generators/ryujinx
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/generators/ryujinx
 mkdir -p $path 2>/dev/null
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 ##curl -sSf "$url/__init__.py" -o "$path/__init__.py"
@@ -2657,7 +2657,7 @@ fi
    function get() {
       file="$1"
       path=/userdata/system/switch/configgen/sdl2
-      url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/configgen/sdl2
+      url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/configgen/sdl2
          mkdir -p $path 2>/dev/null
             if [[ ! -e "$path/$file" ]]; then
                cd $path
@@ -2726,7 +2726,7 @@ cd ~/
 rm /userdata/system/switch/extra/batocera-switch-libSDL2.so 2>/dev/null
 mkdir -p /userdata/system/switch/extra/sdl 2>/dev/null
 sdl=/userdata/system/switch/extra/sdl/libSDL2.so
-sdlurl=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-libSDL2.so
+sdlurl=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-libSDL2.so
    if [[ ! -e "$sdl" ]]; then 
       wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$sdl" "$sdlurl"
       ###curl -sSf "$sdlurl" -o "$sdl"
@@ -2745,9 +2745,9 @@ if [[ -e /userdata/system/configs/yuzu/qt-config.ini ]]; then
 fi
 # --------------------------------------------------------------------
 # GET GUI-UPDATER ICONS
-urldir="https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra"
-icon1url="http://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/icon_updater.png"
-icon2url="http://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/icon_loading.png"
+urldir="https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra"
+icon1url="http://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/system/switch/extra/icon_updater.png"
+icon2url="http://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/system/switch/extra/icon_loading.png"
 icon1=icon_updater.png ; icon2=icon_loading.png ; dest=/userdata/system/switch/extra ; mkdir -p $dest 2>/dev/null
       wget -q --tries=10 -O "$dest/$icon1" "$urldir/$icon1"
       ##curl -sSf "$urldir/$icon1" -o "/userdata/system/switch/extra/icon_updater.png"
@@ -2756,7 +2756,7 @@ icon1=icon_updater.png ; icon2=icon_loading.png ; dest=/userdata/system/switch/e
 # -------------------------------------------------------------------- 
 # GET TRANSLATIONS
 path=/userdata/system/switch/extra/translations
-url=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/translations
+url=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/translations
 mkdir -p $path 2>/dev/null
 mkdir -p $path/en_US 2>/dev/null
 mkdir -p $path/fr_FR 2>/dev/null
@@ -2767,13 +2767,13 @@ mkdir -p $path/fr_FR 2>/dev/null
    dos2unix "$path/$english" 2>/dev/null
    dos2unix "$path/$french" 2>/dev/null
 # GET TRANSLATOR
-translator=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-translator.sh
+translator=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-translator.sh
 path=/userdata/system/switch/extra/batocera-switch-translator.sh
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path" "$translator"
    dos2unix "$path" 2>/dev/null
    chmod 777 "$path" 2>/dev/null
 # GET RYUJINX-FIXES.SH
-file=https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-ryujinx-fixes.sh
+file=https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-ryujinx-fixes.sh
 path=/userdata/system/switch/extra/batocera-switch-ryujinx-fixes.sh
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path" "$file"
    dos2unix "$path" 2>/dev/null
@@ -2802,12 +2802,12 @@ if [[ "$MODE" != "CONSOLE" ]]; then
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
          wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-tput https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
-         ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-tput" -o "/userdata/system/switch/extra/batocera-switch-tput"
+         ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-tput" -o "/userdata/system/switch/extra/batocera-switch-tput"
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
          wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
-         ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera-switch/project/system/switch/extra/batocera-switch-libtinfo.so.6" -o "/userdata/system/switch/extra/batocera-switch-libtinfo.so.6"
+         ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-libtinfo.so.6" -o "/userdata/system/switch/extra/batocera-switch-libtinfo.so.6"
       fi
    chmod a+x "$tput" 2>/dev/null
    if [[ -e "/lib/libtinfo.so.6" ]] || [[ -e "/usr/lib/libtinfo.so.6" ]]; then 

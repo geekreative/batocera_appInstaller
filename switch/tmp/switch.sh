@@ -166,7 +166,7 @@ mkdir /userdata/system/configs/emulationstation 2>/dev/null
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/EXTRA
 path=/userdata/system/switch/extra
-url=https://github.com/geekreative/batocera-switch/raw/project/system/switch/extra
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra
 wget -q -O "$path/batocera-config-ryujinx" "$url/batocera-config-ryujinx"
 wget -q -O "$path/batocera-config-ryujinx-avalonia" "$url/batocera-config-ryujinx-avalonia"
 wget -q -O "$path/batocera-config-yuzu" "$url/batocera-config-yuzu"
@@ -188,48 +188,48 @@ wget -q -O "$path/yuzuEA.png" "$url/yuzuEA.png"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/RYUJINX
 path=/userdata/system/switch/configgen/generators/ryujinx
-url=https://github.com/geekreative/batocera-switch/raw/project/system/switch/configgen/generators/ryujinx
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/configgen/generators/ryujinx
 wget -q -O "$path/__init__.py" "$url/__init__.py"
 wget -q -O "$path/ryujinxMainlineGenerator.py" "$url/ryujinxMainlineGenerator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/YUZU
 path=/userdata/system/switch/configgen/generators/yuzu
-url=https://github.com/geekreative/batocera-switch/raw/project/system/switch/configgen/generators/yuzu
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/configgen/generators/yuzu
 wget -q -O "$path/__init__.py" "$url/__init__.py"
 wget -q -O "$path/yuzuMainlineGenerator.py" "$url/yuzuMainlineGenerator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS
 path=/userdata/system/switch/configgen/generators
-url=https://github.com/geekreative/batocera-switch/raw/project/system/switch/configgen/generators
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/configgen/generators
 wget -q -O "$path/__init__.py" "$url/__init__.py"
 wget -q -O "$path/Generator.py" "$url/Generator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN
 path=/userdata/system/switch/configgen
-url=https://github.com/geekreative/batocera-switch/raw/project/system/switch/configgen
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/configgen
 wget -q -O "$path/GeneratorImporter.py" "$url/GeneratorImporter.py"
 wget -q -O "$path/switchlauncher.py" "$url/switchlauncher.py"
 wget -q -O "$path/switchlauncher2.py" "$url/switchlauncher2.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION
 path=/userdata/system/configs/emulationstation
-url=https://github.com/geekreative/batocera-switch/raw/project/system/configs/emulationstation
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/configs/emulationstation
 wget -q -O "$path/es_features_switch.cfg" "$url/es_features_switch.cfg"
 wget -q -O "$path/es_systems_switch.cfg" "$url/es_systems_switch.cfg"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION 
 path=/userdata/system/configs/evmapy
-url=https://github.com/geekreative/batocera-switch/raw/project/system/configs/evmapy
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/configs/evmapy
 wget -q -O "$path/switch.keys" "$url/switch.keys"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/PORTS 
 path=/userdata/roms/ports 
-url=https://github.com/geekreative/batocera-switch/raw/project/system/roms/ports
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/roms/ports
 wget -q -O "$path/Switch Updater.sh" "$url/Switch Updater.sh"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/PORTS/IMAGES 
 path=/userdata/roms/ports/images
-url=https://github.com/geekreative/batocera-switch/raw/project/system/roms/ports/images
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/roms/ports/images
 wget -q -O "$path/Switch Updater-boxart.png" "$url/Switch Updater-boxart.png"
 wget -q -O "$path/Switch Updater-cartridge.png" "$url/Switch Updater-cartridge.png"
 wget -q -O "$path/Switch Updater-mix.png" "$url/Switch Updater-mix.png"
@@ -238,12 +238,12 @@ wget -q -O "$path/Switch Updater-wheel.png" "$url/Switch Updater-wheel.png"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/SWITCH
 path=/userdata/roms/switch
-url=https://github.com/geekreative/batocera-switch/raw/project/system/roms/switch
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/roms/switch
 wget -q -O "$path/_info.txt" "$url/_info.txt"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/BIOS/SWITCH 
 path=/userdata/bios/switch
-url=https://github.com/geekreative/batocera-switch/raw/project/system/bios/switch
+url=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/bios/switch
 wget -q -O "$path/_info.txt" "$url/_info.txt"
 # -------------------------------------------------------------------- 
 # REMOVE OLD UPDATERS 
