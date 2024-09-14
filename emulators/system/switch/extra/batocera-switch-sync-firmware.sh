@@ -19,10 +19,10 @@ cr=1; cy=1; cs=1
 #
 #  prepare stat
 if [[ ! -e /userdata/system/switch/extra/batocera-switch-stat ]]; then 
-url_stat=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-stat
+url_stat=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-stat
 wget -q --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-stat $url_stat
 elif [[ "$(wc -c /userdata/system/switch/extra/batocera-switch-stat | awk '{print $1}')" < "90000" ]]; then 
-url_stat=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-stat
+url_stat=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-stat
 wget -q --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-stat $url_stat
 fi 
 chmod a+x /userdata/system/switch/extra/batocera-switch-stat 2>/dev/null

@@ -1175,8 +1175,8 @@ export -f batocera_update_switch
 # --- include display output: 
 killall -9 xterm 2>/dev/null
 function get-xterm-fontsize {
-url_tput=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
-url_libtinfo=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
+url_tput=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tput
+url_libtinfo=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libtinfo.so.6
 mkdir /userdata/system/switch 2>/dev/null
 mkdir /userdata/system/switch/extra 2>/dev/null
 extra=/userdata/system/switch/extra

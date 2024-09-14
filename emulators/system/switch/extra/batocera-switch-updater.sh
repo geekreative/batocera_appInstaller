@@ -9,8 +9,8 @@
 #     SETTINGS 
 #  ---------------
 #
-EMULATORS="YUZU YUZUEA RYUJINX RYUJINXLDN RYUJINXAVALONIA" 
-#EMULATORS="YUZU YUZUEA" 
+#EMULATORS="YUZU YUZUEA RYUJINX RYUJINXLDN RYUJINXAVALONIA" 
+EMULATORS="YUZU YUZUEA" 
 #        |
 #        default: "YUZU YUZUEA RYUJINX RYUJINXLDN RYUJINXAVALONIA"
 #
@@ -316,7 +316,7 @@ echo "MODE=$MODE" >> /tmp/updater-mode
 # get animation
 if [[ "$MODE" = "DISPLAY" ]] || [[ "$MODE" = "display" ]]; then 
    if [[ ( "$ANIMATION" = "YES" ) || ( "$ANIMATION" = "yes" ) ]]; then
-   url_loader=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/loader.mp4
+   url_loader=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/loader.mp4
    loader=/userdata/system/switch/extra/loader.mp4 
       if [[ ! -e "$loader" ]]; then 
          wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $loader $url_loader 2>/dev/null
@@ -2801,12 +2801,12 @@ if [[ "$MODE" != "CONSOLE" ]]; then
    mkdir /userdata/system/switch 2>/dev/null; mkdir /userdata/system/switch/extra 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-tput https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
+         wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-tput https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-tput
          ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-tput" -o "/userdata/system/switch/extra/batocera-switch-tput"
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
+         wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/switch/extra/batocera-switch-libtinfo.so.6 https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/batocera-switch-libtinfo.so.6
          ##curl -sSf "https://raw.githubusercontent.com/geekreative/batocera_switch_installer/main/emulators/system/switch/extra/batocera-switch-libtinfo.so.6" -o "/userdata/system/switch/extra/batocera-switch-libtinfo.so.6"
       fi
    chmod a+x "$tput" 2>/dev/null
