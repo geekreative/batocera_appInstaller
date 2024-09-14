@@ -797,13 +797,13 @@ if [[ -e "$cfg" ]]; then
            #yuzu_custom_version_hash=$(curl -Ls "https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-$yuzu_custom_version" | grep "github.com/yuzu-emu/yuzu-mainline/commit/" | head -n1 | sed 's,^.*/commit/,,g' | cut -c 1-9)
            #yuzu_custom_version_date=$(curl -Ls "https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-$yuzu_custom_version" | grep "datetime=" | sed 's,^.*datetime=",,g' | cut -d "T" -f1 | sed 's,-,,g')        
            #if [[ "$yuzu_custom_version_date" != "" ]] && [[ "$yuzu_custom_version_hash" != "" ]]; then 
-              link_yuzu=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/yuzu.AppImage
+              link_yuzu=https://github.com/geekreative/batocera_switch_installer/raw/main/yuzu-binaries/yuzu.AppImage
          #fi
       #fi
    ### yuzuEA
-   #yuzuEA_custom_version=$(cat /userdata/system/switch/CONFIG.txt | grep "USE_YUZUEA_VERSION" | heAd -n1 | sed 's, ,,g' | cut -d "=" -f2 | sed 's, ,,g' | tr -d '\0')
+   #yuzuEA_custom_version=$(cat /userdata/system/switch/CONFIG.txt | grep "USE_YUZUEA_VERSION" | head -n1 | sed 's, ,,g' | cut -d "=" -f2 | sed 's, ,,g' | tr -d '\0')
       #if [[ "$yuzuEA_custom_version" != "auto" ]] && [[ "$yuzuEA_custom_version" != "Auto" ]] && [[ "$yuzuEA_custom_version" != "AUTO" ]] && [[ "$yuzuEA_custom_version" != "A" ]] && [[ "$yuzuEA_custom_version" != "a" ]] && [[ "$yuzuEA_custom_version" != "" ]]; then 
-           link_yuzuea=https://github.com/geekreative/batocera_switch_installer/raw/main/emulators/system/switch/extra/yuzuEA.AppImage
+           link_yuzuea=https://github.com/geekreative/batocera_switch_installer/raw/main/yuzu-binaries/yuzuEA.AppImage
       #fi
    ### ryujinx 
    ryujinx_custom_version=$(cat /userdata/system/switch/CONFIG.txt | grep "USE_RYUJINX_VERSION" | head -n1 | sed 's, ,,g' | cut -d "=" -f2 | sed 's, ,,g' | tr -d '\0')
